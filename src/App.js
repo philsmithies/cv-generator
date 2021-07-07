@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import PersonalDetails from './Components/PersonalDetails';
+import WorkExperience from './Components/WorkExperience'
 import './App.css';
 
 const App = () => {
-  const [count, setCount] = useState(0)
-
-  const incrementCount = () => {
-    setCount(count + 1)
-  }
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <div>{count}</div>
+      <h1>Personal Details:</h1>
       <PersonalDetails />
-      <button onClick={incrementCount}>Increment</button>
+      <h1>Work Experience</h1>
+      <WorkExperience />
     </div>
   );
 }
