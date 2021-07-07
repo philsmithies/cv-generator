@@ -1,8 +1,13 @@
-.App {
+
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1em auto;
+  max-width: 500px;
+  background: white;
+  padding: 4em;
 }
 
 
@@ -20,5 +25,17 @@ input {
 textarea {
   width: 480px;
   height: 125px;
+}
+
+.previewCv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+  max-width: 500px;
+  background: white;
+  border: 3px solid black;
+  padding: 4em;
 }
 
