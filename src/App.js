@@ -17,29 +17,28 @@ const App = () => {
     company: 'Big Shots',
     startDate: '02/01/20',
     endDate: '25/05/21',
-    description: 'Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat. Adipisicing enim minim do anim eiusmod est. Irure laboris anim voluptate proident. Cillum reprehenderit est magna minim. Nostrud ex aute laborum ea irure amet ea ipsum ut non minim anim nisi.'
+    description: 'Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat. Adipisicing enim minim do anim eiusmod est. Irure laboris anim voluptate proident. Cillum reprehenderit est magna minim. Nostrud ex aute laborum ea irure amet ea ipsum ut non minim anim nisi.',
+    elements: []
   })
 
-  const [addWorkExperience, setAddWorkExperience] = useState(false)
-  const [addSchool, setAddSchool] = useState(false)
-
-    const toggleWork = () => {
-    setAddWorkExperience({
-      addWorkExperience: !addWorkExperience
-    })
-    console.log(addWorkExperience)
+  const Element = () => {
+    return (
+    <div>
+      <PersonalInput name="company" placeholder="Company" onChange={handleChange}/>
+      <PersonalInput name="position" placeholder="Position" onChange={handleChange}/>
+      <PersonalInput name="startDate" placeholder="Start Date" onChange={handleChange}/>
+      <PersonalInput name="endDate" placeholder="End Date" onChange={handleChange}/>
+      <PersonalInput name="description" placeholder="description" onChange={handleChange}/>
+      <button onClick={AddWork}>Add Work</button>
+    </div>
+    )
   }
 
-  // const AddWork = (props) => {
-  //   if(!addWorkExperience){
-  //     return <button onClick={toggleWork}>Add Work</button>
-  //   } else {
-  //     return (
-  //       <PersonalInput name="location" placeholder="London,uk" onChange={handleChange}/>
-      
-  //       )
-  //   }
-  // }
+  const AddWork = (props) => {
+    setState({
+      elements: [...state.elements, <Element/>]
+    })
+  }
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -54,19 +53,17 @@ const App = () => {
     <div>
     <div className="wrapper">
       <h1>CV Generator</h1>
+      <h3>Personal Info:</h3>
       <PersonalInput name="fullName" placeholder="John Doe" onChange={handleChange}/>
       <PersonalInput name="role" placeholder="Software Developer" onChange={handleChange}/>
       <PersonalInput name="email" placeholder="john@doe.org" onChange={handleChange}/>
       <PersonalInput name="phone" placeholder="phone" onChange={handleChange}/>
       <PersonalInput name="location" placeholder="London,uk" onChange={handleChange}/>
       <Bio name="bio" placeholder="Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat. Adipisicing enim minim do anim eiusmod est. Irure laboris anim voluptate proident. Cillum reprehenderit est magna minim. Nostrud ex aute laborum ea irure amet ea ipsum ut non minim anim nisi." onChange={handleChange}/>
-      {/* <AddWork onChange={handleChange}/> */}
+
       <h3>Work Experience</h3>
-      <PersonalInput name="company" placeholder="Company" onChange={handleChange}/>
-      <PersonalInput name="position" placeholder="Position" onChange={handleChange}/>
-      <PersonalInput name="startDate" placeholder="Start Date" onChange={handleChange}/>
-      <PersonalInput name="endDate" placeholder="End Date" onChange={handleChange}/>
-      <PersonalInput name="description" placeholder="description" onChange={handleChange}/>
+      {state.elements}
+      <button onClick={AddWork}>Add Work</button>
     </div>
     <div class="previewCv">
     <h1>{state.fullName}: {state.role}</h1>

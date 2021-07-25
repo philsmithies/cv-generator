@@ -10,6 +10,12 @@
   padding: 4em;
 }
 
+h3 {
+  color: red;
+  align-self: flex-start;
+  margin-left: 0.3em;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -18,7 +24,7 @@
 
 input {
   display: block;
-  margin: 1em;
+  margin: 0.25em;
   width: 480px;
 }
 
