@@ -20,13 +20,40 @@ const App = () => {
     startDate: '02/01/20',
     endDate: '25/05/21',
     description: 'Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat. Adipisicing enim minim do anim eiusmod est. Irure laboris anim voluptate proident. Cillum reprehenderit est magna minim. Nostrud ex aute laborum ea irure amet ea ipsum ut non minim anim nisi.',
-    elements: []
   })
 
-  const [elements, setElements] = useState([])
+  const [elements, setElements] = useState([
+    {
+      company: 'pizza hut',
+      startDate: '12/02',
+      endDate: '13/04',
+      description: 'was the leader of pizzas',
+      position: 'manager'
+    },
+    {
+      company: 'monoprix',
+      startDate: '15/02',
+      endDate: '1/04',
+      description: 'general manager',
+      position: 'king'
+    },
+    {
+      company: 'monoprix',
+      startDate: '15/02',
+      endDate: '1/04',
+      description: 'general manager',
+      position: 'king'
+    }
+  ])
 
-  const AddWork = () => {
-    setElements([...elements, <WorkInput/>])
+  // const AddWork = () => {
+  //   setElements([...elements, <WorkInput deleteWork={deleteWork}/>])
+  // }
+
+  const deleteWork = (index) => {
+    const newWorks = [...elements]
+    newWorks.splice(index, 1)
+    setState.elements(newWorks)
   }
 
   const handleChange = (e) => {
@@ -49,9 +76,12 @@ const App = () => {
       <PersonalInput name="location" placeholder={state.location} onChange={handleChange}/>
       <Bio name="bio" value={state.bio} onChange={handleChange}/>
       <h3>Work Experience</h3>
-      {elements}
-      <button onClick={AddWork}>Add Work</button>
+      {/* {elements} */}
+      {/* <button onClick={AddWork}>Add Work</button> */}
+      <WorkInput deleteWork={deleteWork} />
     </div>
+
+
     <div class="previewCv">
     <h1>{state.fullName}: {state.role}</h1>
     <PersonalDetails 
@@ -62,12 +92,15 @@ const App = () => {
       location={state.location}
       bio={state.bio}
     />
-    {/* <WorkDetails
-          company={state.company}
-          startDate={state.startDate}
-          endDate={state.endDate}
-          description={state.description}
-    />     */}
+    {elements.map((work, index) => (
+        <WorkDetails 
+        company={work.company}
+        position={work.position}
+        startDate={work.startDate}
+        description={work.description}
+        endDate={work.endDate}
+        />
+      ))}
     </div>
     </div>
   );
