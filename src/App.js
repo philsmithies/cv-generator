@@ -30,30 +30,17 @@ const App = () => {
       description: 'was the leader of pizzas',
       position: 'manager'
     },
-    {
-      company: 'monoprix',
-      startDate: '15/02',
-      endDate: '1/04',
-      description: 'general manager',
-      position: 'king'
-    },
-    {
-      company: 'monoprix',
-      startDate: '15/02',
-      endDate: '1/04',
-      description: 'general manager',
-      position: 'king'
-    }
   ])
 
-  // const AddWork = () => {
-  //   setElements([...elements, <WorkInput deleteWork={deleteWork}/>])
-  // }
+  const addWork = (text) => {
+    setElements([...elements, { company: text }])
+    console.log(elements)
+  }
 
   const deleteWork = (index) => {
     const newWorks = [...elements]
     newWorks.splice(index, 1)
-    setState.elements(newWorks)
+    setElements(newWorks)
   }
 
   const handleChange = (e) => {
@@ -78,7 +65,7 @@ const App = () => {
       <h3>Work Experience</h3>
       {/* {elements} */}
       {/* <button onClick={AddWork}>Add Work</button> */}
-      <WorkInput deleteWork={deleteWork} />
+      <WorkInput addWork={addWork} handleChange={handleChange} />
     </div>
 
 
@@ -99,6 +86,7 @@ const App = () => {
         startDate={work.startDate}
         description={work.description}
         endDate={work.endDate}
+        deleteWork={deleteWork}
         />
       ))}
     </div>
