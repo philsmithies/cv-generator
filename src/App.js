@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import PersonalDetails from './Components/PersonalDetails';
 import PersonalInput from './Components/PersonalInput';
 import Bio from './Components/Bio';
-import WorkExperience from './Components/WorkExperience'
+// import WorkExperience from './Components/WorkExperience'
 import WorkDetails from './Components/WorkDetails'
 import WorkInput from './Components/WorkInput'
+import WorkInputPreview from './Components/WorkInputPreview'
 import './App.css';
 
 const App = () => {
@@ -24,11 +25,11 @@ const App = () => {
 
   const [elements, setElements] = useState([
     {
-      company: 'pizza hut',
-      startDate: '12/02',
-      endDate: '13/04',
-      description: 'was the leader of pizzas',
-      position: 'manager'
+      company: 'Deliveroo, London',
+      startDate: '12/02/2020',
+      endDate: '13/04/2021',
+      description: 'I was the leader of pizzas',
+      position: 'Product Manager'
     },
   ])
 
@@ -63,9 +64,17 @@ const App = () => {
       <PersonalInput name="location" placeholder={state.location} onChange={handleChange}/>
       <Bio name="bio" value={state.bio} onChange={handleChange}/>
       <h3>Work Experience</h3>
-      {/* {elements} */}
-      {/* <button onClick={AddWork}>Add Work</button> */}
       <WorkInput addWork={addWork} handleChange={handleChange} />
+      {elements.map((work, index) => (
+        <WorkInputPreview 
+        company={work.company}
+        position={work.position}
+        startDate={work.startDate}
+        description={work.description}
+        endDate={work.endDate}
+        deleteWork={deleteWork}
+        />
+      ))}
     </div>
 
 
@@ -79,6 +88,7 @@ const App = () => {
       location={state.location}
       bio={state.bio}
     />
+    <h2 class="worktitle">Work Experience</h2>
     {elements.map((work, index) => (
         <WorkDetails 
         company={work.company}

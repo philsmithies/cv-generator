@@ -8,7 +8,7 @@ const WorkExperience = (props) => {
       <PersonalInput name="startDate" placeholder="Start Date" />
       <PersonalInput name="endDate" placeholder="End Date" />
       <PersonalInput name="description" placeholder="description" />
-      <button>Remove</button>
+      {/* <button>Remove</button> */}
   </div>
   )
 }

@@ -16,6 +16,58 @@ h3 {
   margin-left: 0.3em;
 }
 
+.worktitle{
+  align-self: flex-start;
+}
+
+.workwrapper{
+  align-self: flex-start;
+  margin-bottom: 1em;
+}
+
+.workwrapper p {
+  margin: 0.25em;
+}
+
+/* ---- work input  -----*/
+
+.workinputpreview{
+  margin-top: 1em;
+  background-color: rgba(232, 229, 229, 0.9);
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  /* display: flex; */
+}
+
+.inputpreviewtext{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.workinputpreview button{
+  background-color: #67bef7;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  border: none;
+  justify-self: center;
+  align-self: center;
+}
+
+.workinputpreview button:hover{
+  background-color: #3daffa;
+  cursor: pointer;
+}
+
+.companytext{
+  font-weight: 900;
+}
+
+/* ---- app  -----*/
+
 
 .App-logo {
   height: 40vmin;
