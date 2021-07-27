@@ -33,6 +33,17 @@ const App = () => {
     },
   ])
 
+
+  const [education, setEducation] = useState([
+    {
+      company: 'Makers Academy, London',
+      startDate: '29/03/2021',
+      endDate: '18/06/2021',
+      description: 'Course Student',
+      position: 'Full Stack Web Development'
+    },
+  ])
+
   const addWork = (text) => {
     setElements([...elements, { company: text }])
     console.log(elements)
@@ -75,6 +86,18 @@ const App = () => {
         deleteWork={deleteWork}
         />
       ))}
+      <h3>Education</h3>
+      <WorkInput addWork={addWork} handleChange={handleChange} />
+      {education.map((work, index) => (
+        <WorkInputPreview 
+        company={work.company}
+        position={work.position}
+        startDate={work.startDate}
+        description={work.description}
+        endDate={work.endDate}
+        deleteWork={deleteWork}
+        />
+      ))}
     </div>
 
 
@@ -90,6 +113,17 @@ const App = () => {
     />
     <h2 class="worktitle">Work Experience</h2>
     {elements.map((work, index) => (
+        <WorkDetails 
+        company={work.company}
+        position={work.position}
+        startDate={work.startDate}
+        description={work.description}
+        endDate={work.endDate}
+        deleteWork={deleteWork}
+        />
+      ))}
+    <h2 class="worktitle">Education</h2>
+    {education.map((work, index) => (
         <WorkDetails 
         company={work.company}
         position={work.position}

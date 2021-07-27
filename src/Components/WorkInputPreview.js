@@ -1,5 +1,3 @@
-import PersonalInput from './PersonalInput';
-
 const WorkInputPreview = ({company, position, startDate, endDate, description, deleteWork, index}) => {
   return(
     <div class="workinputpreview">
