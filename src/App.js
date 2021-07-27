@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import PersonalDetails from './Components/PersonalDetails';
 import PersonalInput from './Components/PersonalInput';
 import Bio from './Components/Bio';
-// import WorkExperience from './Components/WorkExperience'
 import WorkDetails from './Components/WorkDetails'
+import EducationDetails from './Components/EducationDetails'
 import WorkInput from './Components/WorkInput'
 import WorkInputPreview from './Components/WorkInputPreview'
+import RoundImage from './round_image.png'
 import './App.css';
 
 const App = () => {
@@ -36,11 +37,11 @@ const App = () => {
 
   const [education, setEducation] = useState([
     {
-      company: 'Makers Academy, London',
+      school: 'Makers Academy, London',
       startDate: '29/03/2021',
       endDate: '18/06/2021',
       description: 'Course Student',
-      position: 'Full Stack Web Development'
+      subject: 'Full Stack Web Development'
     },
   ])
 
@@ -103,6 +104,7 @@ const App = () => {
 
     <div class="previewCv">
     <h1>{state.fullName}: {state.role}</h1>
+    <img src={RoundImage} alt="placeholder" className="placeholder_image"/>
     <PersonalDetails 
       fullName={state.fullName}
       role={state.role}
@@ -123,13 +125,13 @@ const App = () => {
         />
       ))}
     <h2 class="worktitle">Education</h2>
-    {education.map((work, index) => (
-        <WorkDetails 
-        company={work.company}
-        position={work.position}
-        startDate={work.startDate}
-        description={work.description}
-        endDate={work.endDate}
+    {education.map((education, index) => (
+        <EducationDetails 
+        school={education.school}
+        subject={education.subject}
+        startDate={education.startDate}
+        description={education.description}
+        endDate={education.endDate}
         deleteWork={deleteWork}
         />
       ))}
