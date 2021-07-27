@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-const WorkInput = ({ addWork }) => {
+const EducationInput = ({ addEducation }) => {
   const [state, setState] = useState({
-    position: "Position",
-    company: "Company",
+    school: "School",
+    city: "City",
+    subject: "Subject",
     startDate: "From",
     endDate: "To",
   });
@@ -11,7 +12,7 @@ const WorkInput = ({ addWork }) => {
   const handleSubmit = (e) => {
     const value = e.target.value;
     e.preventDefault();
-    addWork(state.company);
+    addEducation(state.company);
     setState({
       ...state,
       [e.target.name]: value
@@ -28,8 +29,9 @@ const WorkInput = ({ addWork }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="position" type="text" placeholder={state.position} onChange={handleChange}/>
-      <input name="company" type="text" placeholder={state.company} onChange={handleChange}/>
+      <input name="school" type="text" placeholder={state.school} onChange={handleChange}/>
+      <input name="city" type="text" placeholder={state.city} onChange={handleChange}/>
+      <input name="subject" type="text" placeholder={state.subject} onChange={handleChange}/>
       <input name="startDate" type="text" placeholder={state.startDate} />
       <input name="endDate" type="text" placeholder={state.endDate} />
       <button type="submit">Add</button>
@@ -37,4 +39,4 @@ const WorkInput = ({ addWork }) => {
   );
 };
 
-export default WorkInput;
+export default EducationInput;

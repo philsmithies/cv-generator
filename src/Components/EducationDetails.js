@@ -1,12 +1,11 @@
-const EducationDetails = ({school, subject, startDate, endDate, description, deleteWork, index}) => {
+const EducationDetails = ({school, city, subject, startDate, endDate, deleteWork, index}) => {
   return(
     <div class="workwrapper">
       <strong>School: {school}</strong>
+      <p>City: {city}</p>
       <p>Subject: {subject}</p>
-      <p>Start Date: {startDate}</p>
-      <p>End Date: {endDate}</p>
-      <p>Description: {description}</p>
-      {/* <button onClick={() => deleteWork(index)}>Remove</button> */}
+      <p>From: {startDate}</p>
+      <p>To: {endDate}</p>
     </div>
   ) 
 }

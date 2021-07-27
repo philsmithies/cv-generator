@@ -5,12 +5,15 @@ import Bio from './Components/Bio';
 import WorkDetails from './Components/WorkDetails'
 import EducationDetails from './Components/EducationDetails'
 import WorkInput from './Components/WorkInput'
+import EducationInput from './Components/EducationInput'
 import WorkInputPreview from './Components/WorkInputPreview'
+import EducationInputPreview from './Components/EducationInputPreview'
 import RoundImage from './round_image.png'
 import './App.css';
 
 const App = () => {
 
+  const [previewSource, setPreviewSource] = useState("")
   const [state, setState]  = useState({
     fullName: 'John Doe',
     role: 'Software Developer',
@@ -26,9 +29,10 @@ const App = () => {
 
   const [elements, setElements] = useState([
     {
-      company: 'Deliveroo, London',
-      startDate: '12/02/2020',
-      endDate: '13/04/2021',
+      company: 'Deliveroo',
+      city: 'London',
+      startDate: '2018',
+      endDate: '2021',
       description: 'I was the leader of pizzas',
       position: 'Product Manager'
     },
@@ -37,23 +41,37 @@ const App = () => {
 
   const [education, setEducation] = useState([
     {
-      school: 'Makers Academy, London',
-      startDate: '29/03/2021',
-      endDate: '18/06/2021',
+      school: 'Makers Academy',
+      city: 'London',
+      startDate: '2020',
+      endDate: '2021',
       description: 'Course Student',
       subject: 'Full Stack Web Development'
     },
   ])
+
+  const [photo, setPhoto] = useState(RoundImage)
 
   const addWork = (text) => {
     setElements([...elements, { company: text }])
     console.log(elements)
   }
 
+  const addEducation = (text) => {
+    setEducation([...elements, { company: text }])
+    console.log(education)
+  }
+
   const deleteWork = (index) => {
     const newWorks = [...elements]
     newWorks.splice(index, 1)
     setElements(newWorks)
+  }
+
+  const deleteEducation = (index) => {
+    const newEducation = [...education]
+    newEducation.splice(index, 1)
+    setEducation(newEducation)
   }
 
   const handleChange = (e) => {
@@ -63,6 +81,22 @@ const App = () => {
        [e.target.name]: value
      })
    }
+
+  const handleFile = (e) => {
+    setPhoto(e.target.files[0]);
+    const file = e.target.files[0]
+    previewFile(file)
+  }
+
+
+  const previewFile = (file => {
+    const reader = new FileReader();
+    // reads the file as url to create preview
+    reader.readAsDataURL(file)
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    }
+  })
  
   return (
     <div>
@@ -75,6 +109,7 @@ const App = () => {
       <PersonalInput name="phone" placeholder={state.phone} onChange={handleChange}/>
       <PersonalInput name="location" placeholder={state.location} onChange={handleChange}/>
       <Bio name="bio" value={state.bio} onChange={handleChange}/>
+      <label id="upload_image">Upload an Image:<input type="file" onChange={handleFile}/></label>
       <h3>Work Experience</h3>
       <WorkInput addWork={addWork} handleChange={handleChange} />
       {elements.map((work, index) => (
@@ -88,15 +123,14 @@ const App = () => {
         />
       ))}
       <h3>Education</h3>
-      <WorkInput addWork={addWork} handleChange={handleChange} />
-      {education.map((work, index) => (
-        <WorkInputPreview 
-        company={work.company}
-        position={work.position}
-        startDate={work.startDate}
-        description={work.description}
-        endDate={work.endDate}
-        deleteWork={deleteWork}
+      <EducationInput addEducation={addEducation} handleChange={handleChange} />
+      {education.map((education, index) => (
+        <EducationInputPreview 
+        school={education.school}
+        subject={education.subject}
+        startDate={education.startDate}
+        endDate={education.endDate}
+        deleteEducation={deleteEducation}
         />
       ))}
     </div>
@@ -104,7 +138,11 @@ const App = () => {
 
     <div class="previewCv">
     <h1>{state.fullName}: {state.role}</h1>
-    <img src={RoundImage} alt="placeholder" className="placeholder_image"/>
+    {(previewSource) && (
+        <img src={previewSource} alt='' className="placeholder_image"/>
+        )}
+
+    {/* <img src={photo} alt="placeholder" className="placeholder_image"/> */}
     <PersonalDetails 
       fullName={state.fullName}
       role={state.role}
@@ -118,6 +156,7 @@ const App = () => {
         <WorkDetails 
         company={work.company}
         position={work.position}
+        city={work.city}
         startDate={work.startDate}
         description={work.description}
         endDate={work.endDate}
@@ -128,11 +167,12 @@ const App = () => {
     {education.map((education, index) => (
         <EducationDetails 
         school={education.school}
+        city={education.city}
         subject={education.subject}
         startDate={education.startDate}
         description={education.description}
         endDate={education.endDate}
-        deleteWork={deleteWork}
+        deleteEducation={deleteEducation}
         />
       ))}
     </div>

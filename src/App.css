@@ -37,9 +37,14 @@ h3 {
   border-radius: 5px;
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  height: 8em;
   /* display: flex; */
+}
+
+.workinputpreview p{
+  padding-left: 2em;
 }
 
 .inputpreviewtext{
@@ -52,6 +57,7 @@ h3 {
   width: 30px;
   height: 30px;
   border-radius: 3px;
+  margin-right: 2em;
   border: none;
   justify-self: center;
   align-self: center;
@@ -99,5 +105,10 @@ textarea {
 
 .placeholder_image{
   width: 170px;
+}
+
+#upload_image{
+  margin-top: 1em;
+  font-size: 0.9em;
 }
 
