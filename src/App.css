@@ -7,7 +7,8 @@
   margin: 6em auto;
   max-width: 500px;
   background: white;
-  padding: 4em;
+  padding: 3em 4em;
+  border-radius: 15px;
 }
 
 h3 {
@@ -79,6 +80,37 @@ h3 {
   height: 40vmin;
   pointer-events: none;
 }
+
+.loadButton{
+  margin-top: 2em;
+  background-color: orange;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  height: 5vh;
+  width: 100%;
+}
+
+.resetButton{
+  margin-top: 0.2em;
+  background-color: rgb(165, 35, 35);
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  height: 5vh;
+  width: 100%;
+}
+
+.generateButton{
+  margin-top: 0.2em;
+  background-color: rgb(83, 227, 83);
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  height: 5vh;
+  width: 100%;
+}
+
 
 input {
   display: block;

@@ -104,7 +104,6 @@ const App = () => {
     <div>
     <Header/>
     <div className="wrapper">
-      <h1>CV Generator</h1>
       <h3>Personal Info:</h3>
       <PersonalInput name="fullName" placeholder={state.fullName} onChange={handleChange}/>
       <PersonalInput name="role" placeholder={state.role} onChange={handleChange}/>
@@ -136,6 +135,9 @@ const App = () => {
         deleteEducation={deleteEducation}
         />
       ))}
+    <button className="loadButton">Load Example</button>
+    <button className="generateButton">Print PDF</button>
+    <button className="resetButton">Reset</button>
     </div>
 
 
