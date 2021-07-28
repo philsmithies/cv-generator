@@ -15,7 +15,7 @@ import './App.css';
 
 const App = () => {
 
-  const [previewSource, setPreviewSource] = useState("")
+  const [previewSource, setPreviewSource] = useState(RoundImage)
   const [state, setState]  = useState({
     fullName: 'John Doe',
     role: 'Software Developer',
@@ -52,8 +52,6 @@ const App = () => {
     },
   ])
 
-  const [photo, setPhoto] = useState(RoundImage)
-
   const addWork = (text) => {
     setElements([...elements, { company: text }])
     console.log(elements)
@@ -85,7 +83,7 @@ const App = () => {
    }
 
   const handleFile = (e) => {
-    setPhoto(e.target.files[0]);
+    setPreviewSource(e.target.files[0]);
     const file = e.target.files[0]
     previewFile(file)
   }
@@ -111,7 +109,7 @@ const App = () => {
       <PersonalInput name="phone" placeholder={state.phone} onChange={handleChange}/>
       <PersonalInput name="location" placeholder={state.location} onChange={handleChange}/>
       <Bio name="bio" value={state.bio} onChange={handleChange}/>
-      <label id="upload_image">Upload an Image:<input type="file" onChange={handleFile}/></label>
+      <label id="upload_image">Upload an Image:<input type="file" className="fileUpload" onChange={handleFile}/></label>
       <h3>Work Experience</h3>
       <WorkInput addWork={addWork} handleChange={handleChange} />
       {elements.map((work, index) => (
@@ -147,7 +145,6 @@ const App = () => {
         <img src={previewSource} alt='' className="placeholder_image"/>
         )}
 
-    {/* <img src={photo} alt="placeholder" className="placeholder_image"/> */}
     <PersonalDetails 
       fullName={state.fullName}
       role={state.role}

@@ -4,11 +4,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 6em auto;
-  max-width: 500px;
+  margin: 0 auto;
+  max-width: 600px;
   background: white;
   padding: 3em 4em;
-  border-radius: 15px;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.fileUpload{
+  padding-bottom: 1em;
 }
 
 h3 {
@@ -87,27 +92,28 @@ h3 {
   font-weight: bold;
   border-radius: 5px;
   border: none;
-  height: 5vh;
+  height: 50px;
   width: 100%;
 }
 
 .resetButton{
-  margin-top: 0.2em;
+  margin-top: 0.5em;
   background-color: rgb(165, 35, 35);
   font-weight: bold;
   border-radius: 5px;
   border: none;
-  height: 5vh;
+  height: 50px;
   width: 100%;
+  padding: 5px;
 }
 
 .generateButton{
-  margin-top: 0.2em;
+  margin-top: 0.5em;
   background-color: rgb(83, 227, 83);
   font-weight: bold;
   border-radius: 5px;
   border: none;
-  height: 5vh;
+  height: 50px;
   width: 100%;
 }
 
@@ -115,24 +121,23 @@ h3 {
 input {
   display: block;
   margin: 0.25em;
-  width: 480px;
+  width: 600px;
+  height: 20px;
 }
 
 textarea {
-  width: 480px;
+  width: 600px;
   height: 125px;
 }
 
 .previewCv{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
   margin: 2em auto;
-  max-width: 500px;
+  max-width: 600px;
   background: white;
-  border: 3px solid black;
+  /* border: 3px solid rgb(193, 193, 193); */
   padding: 4em;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
 .placeholder_image{
