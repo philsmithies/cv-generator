@@ -9,6 +9,8 @@ import EducationInput from './Components/EducationInput'
 import WorkInputPreview from './Components/WorkInputPreview'
 import EducationInputPreview from './Components/EducationInputPreview'
 import RoundImage from './round_image.png'
+import Header from './Components/Header/index.js'
+import Footer from './Components/Footer/index.js'
 import './App.css';
 
 const App = () => {
@@ -100,6 +102,7 @@ const App = () => {
  
   return (
     <div>
+    <Header/>
     <div className="wrapper">
       <h1>CV Generator</h1>
       <h3>Personal Info:</h3>
@@ -176,6 +179,7 @@ const App = () => {
         />
       ))}
     </div>
+    <Footer />
     </div>
   );
 }
