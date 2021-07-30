@@ -20,7 +20,7 @@ const App = () => {
     fullName: 'John Doe',
     role: 'Software Developer',
     email: 'john@doe.org',
-    phone: 'phone',
+    phone: '07709018123',
     location: 'London,uk',
     bio: 'Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat. Adipisicing enim minim do anim eiusmod est. Irure laboris anim voluptate proident. Cillum reprehenderit est magna minim. Nostrud ex aute laborum ea irure amet ea ipsum ut non minim anim nisi.',
     company: 'Big Shots',
@@ -140,19 +140,26 @@ const App = () => {
 
 
     <div class="previewCv">
-    <h1>{state.fullName}: {state.role}</h1>
-    {(previewSource) && (
-        <img src={previewSource} alt='' className="placeholder_image"/>
-        )}
+        <div className="previewCvHeader">    
+          <h1>{state.fullName}: {state.role}</h1>
+        </div>
 
-    <PersonalDetails 
-      fullName={state.fullName}
-      role={state.role}
-      email={state.email}
-      phone={state.phone}
-      location={state.location}
-      bio={state.bio}
-    />
+        <div className="previewBio">
+          {state.bio}
+        </div>
+
+        <div className="previewCVSide">
+          {(previewSource) && (
+          <img src={previewSource} alt='' className="placeholder_image"/>
+          )}
+          <h2>Personal Details</h2>
+          <p>{state.email}</p>
+          <p>{state.phone}</p>
+          <p>{state.location}</p>
+        </div>
+    
+
+   <div className="previewCVWork">
     <h2 class="worktitle">Work Experience</h2>
     {elements.map((work, index) => (
         <WorkDetails 
@@ -165,6 +172,8 @@ const App = () => {
         deleteWork={deleteWork}
         />
       ))}
+      </div>
+      <div className="previewCVEducation">
     <h2 class="worktitle">Education</h2>
     {education.map((education, index) => (
         <EducationDetails 
@@ -177,6 +186,7 @@ const App = () => {
         deleteEducation={deleteEducation}
         />
       ))}
+    </div>
     </div>
     <Footer />
     </div>
