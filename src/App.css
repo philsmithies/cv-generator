@@ -100,6 +100,11 @@ h3 {
   width: 100%;
 }
 
+.loadButton:hover{
+  background-color: rgb(187, 122, 0);
+  cursor: pointer;
+}
+
 .resetButton{
   margin-top: 0.5em;
   background-color: rgb(165, 35, 35);
@@ -111,6 +116,11 @@ h3 {
   padding: 5px;
 }
 
+.resetButton:hover{
+  background-color: rgb(160, 17, 17);
+  cursor: pointer;
+}
+
 .generateButton{
   margin-top: 0.5em;
   background-color: rgb(83, 227, 83);
@@ -119,6 +129,11 @@ h3 {
   border: none;
   height: 50px;
   width: 100%;
+}
+
+.generateButton:hover{
+  background-color: rgb(59, 174, 59);
+  cursor: pointer;
 }
 
 

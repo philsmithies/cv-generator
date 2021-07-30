@@ -96,6 +96,12 @@ const App = () => {
       setPreviewSource(reader.result)
     }
   })
+
+  const resetForm = () => {
+    setElements([])
+    setEducation([])
+    setState([])
+  }
  
   return (
     <div>
@@ -134,7 +140,7 @@ const App = () => {
       ))}
     <button className="loadButton">Load Example</button>
     <button className="generateButton">Print PDF</button>
-    <button className="resetButton">Reset</button>
+    <button className="resetButton" onClick={resetForm}>Reset</button>
     </div>
 
 
