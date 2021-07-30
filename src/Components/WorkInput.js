@@ -11,7 +11,7 @@ const WorkInput = ({ addWork }) => {
   const handleSubmit = (e) => {
     const value = e.target.value;
     e.preventDefault();
-    addWork(state.company);
+    addWork(state);
     setState({
       ...state,
       [e.target.name]: value
@@ -30,8 +30,8 @@ const WorkInput = ({ addWork }) => {
     <form onSubmit={handleSubmit}>
       <input name="position" type="text" placeholder={state.position} onChange={handleChange}/>
       <input name="company" type="text" placeholder={state.company} onChange={handleChange}/>
-      <input name="startDate" type="text" placeholder={state.startDate} />
-      <input name="endDate" type="text" placeholder={state.endDate} />
+      <input name="startDate" type="text" placeholder={state.startDate}  onChange={handleChange}/>
+      <input name="endDate" type="text" placeholder={state.endDate} onChange={handleChange}/>
       <button type="submit">Add</button>
     </form>
   );

@@ -12,7 +12,7 @@ const EducationInput = ({ addEducation }) => {
   const handleSubmit = (e) => {
     const value = e.target.value;
     e.preventDefault();
-    addEducation(state.company);
+    addEducation(state);
     setState({
       ...state,
       [e.target.name]: value
@@ -32,8 +32,8 @@ const EducationInput = ({ addEducation }) => {
       <input name="school" type="text" placeholder={state.school} onChange={handleChange}/>
       <input name="city" type="text" placeholder={state.city} onChange={handleChange}/>
       <input name="subject" type="text" placeholder={state.subject} onChange={handleChange}/>
-      <input name="startDate" type="text" placeholder={state.startDate} />
-      <input name="endDate" type="text" placeholder={state.endDate} />
+      <input name="startDate" type="text" placeholder={state.startDate} onChange={handleChange}/>
+      <input name="endDate" type="text" placeholder={state.endDate} onChange={handleChange}/>
       <button type="submit">Add</button>
     </form>
   );

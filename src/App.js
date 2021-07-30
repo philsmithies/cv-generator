@@ -52,14 +52,12 @@ const App = () => {
     },
   ])
 
-  const addWork = (text) => {
-    setElements([...elements, { company: text }])
-    console.log(elements)
+  const addWork = (e) => {
+    setElements([...elements, { company: e.company, position: e.position, startDate: e.startDate, endDate: e.endDate }])
   }
 
-  const addEducation = (text) => {
-    setEducation([...elements, { company: text }])
-    console.log(education)
+  const addEducation = (e) => {
+    setEducation([...education, { school: e.school, city: e.city, subject: e.subject, startDate: e.startDate, endDate: e.endDate }])
   }
 
   const deleteWork = (index) => {
@@ -81,6 +79,7 @@ const App = () => {
        [e.target.name]: value
      })
    }
+   
 
   const handleFile = (e) => {
     setPreviewSource(e.target.files[0]);
@@ -144,23 +143,27 @@ const App = () => {
           <h1>{state.fullName}: {state.role}</h1>
         </div>
 
-        <div className="previewBio">
-          {state.bio}
-        </div>
-
         <div className="previewCVSide">
           {(previewSource) && (
           <img src={previewSource} alt='' className="placeholder_image"/>
           )}
           <h2>Personal Details</h2>
+          <hr/>
           <p>{state.email}</p>
           <p>{state.phone}</p>
           <p>{state.location}</p>
         </div>
     
+    <div class="maincv">
+    
+    <div className="previewBio">
+    <h2>Bio</h2>
+      {state.bio}
+    </div>
 
    <div className="previewCVWork">
     <h2 class="worktitle">Work Experience</h2>
+    <hr/>
     {elements.map((work, index) => (
         <WorkDetails 
         company={work.company}
@@ -175,6 +178,7 @@ const App = () => {
       </div>
       <div className="previewCVEducation">
     <h2 class="worktitle">Education</h2>
+    <hr/>
     {education.map((education, index) => (
         <EducationDetails 
         school={education.school}
@@ -186,6 +190,7 @@ const App = () => {
         deleteEducation={deleteEducation}
         />
       ))}
+    </div>
     </div>
     </div>
     <Footer />
